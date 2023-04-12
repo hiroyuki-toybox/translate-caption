@@ -1,0 +1,17 @@
+{
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules",
+    "packages/extension/dist",
+    "build",
+    "coverage",
+    "docs",
+    "scripts",
+    "src/**/*.test.ts"
+  ],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "src"
+  }
+}

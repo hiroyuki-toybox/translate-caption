@@ -1,0 +1,30 @@
+{
+  "name": "show-caption-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hir0o/show-caption-extension.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hir0o/show-caption-extension/issues"
+  },
+  "homepage": "https://github.com/hir0o/show-caption-extension#readme",
+  "dependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-typescript": "^0.14.0",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/chrome": "^0.0.231",
+    "@types/node": "^18.15.11"
+  }
+}
