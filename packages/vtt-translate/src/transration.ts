@@ -1,67 +1,4 @@
-type Header = string;
-
-type Cap = {
-  id: string;
-  start: string;
-  end: string;
-  text: string;
-  isSentenceEnd: boolean;
-};
-
-type VttAst = {
-  header: Header;
-  caps: Cap[];
-};
-
-const getVttAst = (vtt: string): VttAst => {
-  const [header, ...rest] = vtt.split("\n");
-
-  const caps: Cap[] = [];
-
-  for (let i = 0; i < rest.length; i++) {
-    const line = rest[i];
-
-    if (line === "") {
-      continue;
-    }
-
-    const id = line;
-    const time = rest[++i];
-    const [start, end] = time.split(" --> ");
-    const texts: string[] = [];
-    while (rest[++i] !== "") {
-      texts.push(rest[i]);
-    }
-    const text = texts.join(" ");
-    caps.push({
-      id,
-      start,
-      end,
-      text,
-      isSentenceEnd:
-        text.endsWith(".") || text.endsWith("?") || text.endsWith("!"),
-    });
-  }
-
-  return {
-    header,
-    caps,
-  };
-};
-
-const ast2Text = (ast: VttAst): string => {
-  const { header, caps } = ast;
-  const lines = [header];
-
-  for (const cap of caps) {
-    lines.push("");
-    lines.push(cap.id);
-    lines.push(`${cap.start} --> ${cap.end}`);
-    lines.push(cap.text);
-  }
-
-  return lines.join("\n");
-};
+import type { VttAst, Cap } from "vtt-ast";
 
 const translate = async (text: string, target = "JA"): Promise<string> => {
   return "";
@@ -79,8 +16,7 @@ const translate = async (text: string, target = "JA"): Promise<string> => {
   return json.translations[0].text;
 };
 
-// 一つの文に結合する
-const joinCaps = (vttAst: VttAst): VttAst => {
+export const joinSentences = (vttAst: VttAst): VttAst => {
   const { caps } = vttAst;
 
   const newCaps: Cap[] = [];
@@ -146,7 +82,7 @@ const joinCaps = (vttAst: VttAst): VttAst => {
   };
 };
 
-const translateAst = async (ast: VttAst): Promise<VttAst> => {
+export const translateVttAst = async (ast: VttAst): Promise<VttAst> => {
   const { header, caps } = ast;
   const newCaps: Cap[] = [];
 
@@ -163,17 +99,3 @@ const translateAst = async (ast: VttAst): Promise<VttAst> => {
     caps: newCaps,
   };
 };
-
-const main = async () => {
-  const ast = getVttAst("");
-  console.log(ast);
-
-  // const joinedAst = joinCaps(ast);
-  // const translated = await translateAst(joinedAst);
-  // console.log(translated);
-
-  // const text = ast2Text(translated);
-  // console.log(text);
-};
-
-main();

@@ -1,7 +1,7 @@
 {
   "name": "translate-caption",
   "version": "1.0.0",
-  "description": "",
+  "description": "readme",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,10 +9,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eslint-plugin-typescript": "^0.14.0",
-    "tsc": "^2.0.4",
-    "typescript": "^5.0.4",
+    "@mkmk4423/prettier-config": "^0.0.5",
     "eslint-config-prettier": "^8.8.0",
-    "prettier": "^2.8.7"
-  }
+    "eslint-plugin-typescript": "^0.14.0",
+    "prettier": "^2.8.7",
+    "tsc": "^2.0.4",
+    "typescript": "^5.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hir0o/translate-caption.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hir0o/translate-caption/issues"
+  },
+  "homepage": "https://github.com/hir0o/translate-caption#readme",
+  "workspaces": [
+    "packages/*",
+    ""
+  ],
+  "keywords": []
 }

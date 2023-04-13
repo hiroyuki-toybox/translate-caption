@@ -1,6 +1,6 @@
 type Header = string;
 
-type Cap = {
+export type Cap = {
   id: string;
   start: string;
   end: string;
