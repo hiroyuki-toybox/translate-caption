@@ -1,3 +1,15 @@
 [submodule "packages/vtt-translate/src/transcript/fm-transcripts"]
 	path = packages/vtt-translate/src/transcript/fm-transcripts
 	url = https://github.com/FrontendMasters/fm-transcripts
+[submodule "packages/ja-content/packages/ja-content"]
+	path = packages/ja-content/packages/ja-content
+	url = https://github.com/FrontendMasters/fm-transcripts
+[submodule "scripts"]
+	path = scripts
+	url = https://github.com/FrontendMasters/fm-transcripts
+[submodule "packages/ja-content/transcropt"]
+	path = packages/ja-content/transcropt
+	url = https://github.com/FrontendMasters/fm-transcripts
+[submodule "packages/ja-content/transcropts"]
+	path = packages/ja-content/transcropts
+	url = https://github.com/FrontendMasters/fm-transcripts

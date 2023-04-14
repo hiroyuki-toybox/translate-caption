@@ -1,11 +1,13 @@
 import type { VttAst, Cap } from "vtt-ast";
 
 const translate = async (text: string, target = "JA"): Promise<string> => {
-  return "";
-  new Promise((r) => setTimeout(r, 1000));
+  if (process.env.DEEPL_API_KEY === undefined) {
+    throw new Error("DEEPL_API_KEY is not defined");
+  }
   const res = await fetch("https://api-free.deepl.com/v2/translate", {
     method: "POST",
     headers: {
+      Authorization: `DeepL-Auth-Key ${process.env.DEEPL_API_KEY}`,
       "Content-Type": "application/x-www-form-urlencoded",
     },
     body: `text=${text}&target_lang=${target}`,
@@ -89,6 +91,7 @@ export const translateVttAst = async (ast: VttAst): Promise<VttAst> => {
   for (const cap of caps) {
     const { text, ...rest } = cap;
 
+    await new Promise((resolve) => setTimeout(resolve, 100));
     const newText = await translate(text);
 
     newCaps.push({ text: newText, ...rest });

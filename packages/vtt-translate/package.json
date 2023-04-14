@@ -2,14 +2,17 @@
   "name": "vtt-translate",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
   "scripts": {
-    "build": "tsc --build"
+    "build": "tsc --build",
+    "exec": "ts-node src/main.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "vtt-ast": "^1.0.0"
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "ts-node": "^10.9.1"
   }
 }
