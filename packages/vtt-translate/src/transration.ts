@@ -88,11 +88,14 @@ export const translateVttAst = async (ast: VttAst): Promise<VttAst> => {
   const { header, caps } = ast;
   const newCaps: Cap[] = [];
 
+  let count = 0;
   for (const cap of caps) {
     const { text, ...rest } = cap;
 
-    await new Promise((resolve) => setTimeout(resolve, 100));
     const newText = await translate(text);
+    count++;
+
+    console.log(`${count}/${caps.length} is translated`);
 
     newCaps.push({ text: newText, ...rest });
   }

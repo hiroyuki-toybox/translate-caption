@@ -37,9 +37,10 @@ const main = async () => {
     bottom: "12%",
     width: "100%",
     textAlign: "center",
-    fontSize: "17px",
+    fontSize: "24px",
     padding: "0 10%",
     lineHeight: "1.5em",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   };
   Object.assign(p.style, style);
   p.appendChild(document.createTextNode("Hello World"));
